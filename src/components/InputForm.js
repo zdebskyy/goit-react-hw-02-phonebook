@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NameForm from "./NameForm";
+import NumberForm from "./NumberForm";
 
 export default class InputForm extends Component {
   state = {
@@ -10,37 +12,18 @@ export default class InputForm extends Component {
     this.props.onAddContact(this.state);
     this.setState({ name: "", number: "" });
   };
-  handleInput = (e) => {
-    this.setState({ name: e.target.value });
+  handleInput = (value) => {
+    this.setState({ name: value });
   };
-  handleNumber = (e) => {
-    this.setState({ number: e.target.value });
+  handleNumber = (value) => {
+    this.setState({ number: value });
   };
   render() {
     const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
-            placeholder="Enter name"
-            type="text"
-            value={name}
-            onChange={this.handleInput}
-            name="text"
-          ></input>
-        </label>
-        <label>
-          Number
-          <input
-            placeholder="Enter number"
-            type="number"
-            value={number}
-            onChange={this.handleNumber}
-            name="number"
-          ></input>
-        </label>
-
+        <NameForm onInputName={this.handleInput} value={name} />
+        <NumberForm onInputNumber={this.handleNumber} value={number} />
         <button type="submit">Add contact</button>
       </form>
     );
