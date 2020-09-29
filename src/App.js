@@ -43,12 +43,12 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { contacts, filter } = this.state;
     const sortedContacts = this.getFilteredContacts();
     return (
       <div>
         <SectionTitle title="PhoneBook">
-          <InputForm onAddContact={this.addContact} />
+          <InputForm onAddContact={this.addContact} allContacts={contacts} />
         </SectionTitle>
 
         <SectionTitle title="Contacts">

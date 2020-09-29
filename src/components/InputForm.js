@@ -9,7 +9,15 @@ export default class InputForm extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onAddContact(this.state);
+    const contactName = this.props.allContacts.map((el) => {
+      return el.name;
+    });
+    const validation = contactName.find((el) => el === this.state.name);
+
+    validation === this.state.name
+      ? alert("This contact name already exist")
+      : this.props.onAddContact(this.state);
+
     this.setState({ name: "", number: "" });
   };
   handleInput = (value) => {
