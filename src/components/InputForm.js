@@ -9,7 +9,7 @@ export default class InputForm extends Component {
     number: "",
   };
 
-  PropTypes = {
+  static propTypes = {
     allContacts: PropTypes.array.isRequired,
     onAddContact: PropTypes.func.isRequired,
   };
