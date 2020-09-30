@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function NumberForm({ value, onInputNumber }) {
+function NumberForm({ value, onInputNumber }) {
   return (
     <>
       <label>
@@ -16,3 +17,10 @@ export default function NumberForm({ value, onInputNumber }) {
     </>
   );
 }
+
+NumberForm.propTypes = {
+  value: PropTypes.string.isRequired,
+  onInputNumber: PropTypes.func.isRequired,
+};
+
+export default NumberForm;

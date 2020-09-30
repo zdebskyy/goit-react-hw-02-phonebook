@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import NameForm from "./NameForm";
 import NumberForm from "./NumberForm";
+import PropTypes from "prop-types";
 
 export default class InputForm extends Component {
   state = {
     name: "",
     number: "",
+  };
+
+  PropTypes = {
+    allContacts: PropTypes.array.isRequired,
+    onAddContact: PropTypes.func.isRequired,
   };
   handleSubmit = (e) => {
     e.preventDefault();

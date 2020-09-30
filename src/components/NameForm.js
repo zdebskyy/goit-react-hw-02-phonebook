@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function NameForm({ value, onInputName }) {
+function NameForm({ value, onInputName }) {
   return (
     <>
       <label>
@@ -17,3 +18,10 @@ export default function NameForm({ value, onInputName }) {
     </>
   );
 }
+
+NameForm.propTypes = {
+  value: PropTypes.string.isRequired,
+  onInputName: PropTypes.func.isRequired,
+};
+
+export default NameForm;
